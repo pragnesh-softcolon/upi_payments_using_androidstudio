@@ -38,13 +38,8 @@ public class upi extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 //Getting the values from the EditTexts
-
-
-
-
                 String amount = amountEt.getText().toString();
                 String note = noteEt.getText().toString();
-
                 String name = nameEt.getText().toString();
                 String upiId = upiIdEt.getText().toString();
                 //upiIdEt.setFocusable(false);
@@ -79,7 +74,7 @@ public class upi extends AppCompatActivity
         Intent chooser = Intent.createChooser(upiPayIntent, "Pay with");
 
         // check if intent resolves
-        if(null != chooser.resolveActivity(getPackageManager()))
+        if( chooser.resolveActivity(getPackageManager())!= null)
         {
             startActivityForResult(chooser, UPI_PAYMENT);
         } else {
